@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>استعادة الحساب</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      direction: rtl;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      width: 50%;
+    }
+    h1 {
+      color: #d80000;
+    }
+    p {
+      font-size: 18px;
+    }
+    .otp-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .otp-box input {
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    
+    }
+    .btn {
+      padding: 10px 25px;
+      font-size: 16px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>تحذير!</h1>
+    <p>يوجد محاولة دخول على حسابك يرجى ادخال كود التحقق لتحقق من هويتك</p>
+
+    <div class="otp-box">
+      <input type="text" id="digit1" maxlength="1">
+      <input type="text" id="digit2" maxlength="1">
+      <input type="text" id="digit3" maxlength="1">
+      <input type="text" id="digit4" maxlength="1">
+    </div>
+
+    <button class="btn" onclick="verifyOTP()">
+      <i class="fas fa-check-circle"></i> تحقق
+    </button>
+  </div>
+
+  <script>
+    function verifyOTP() {
+      const d1 = document.getElementById('digit1').value.trim();
+      const d2 = document.getElementById('digit2').value.trim();
+      const d3 = document.getElementById('digit3').value.trim();
+      const d4 = document.getElementById('digit4').value.trim();
+
+      const otp = d1 + d2 + d3 + d4;
+      console.log("الرمز المدخل:", otp);
+
+      if (otp === "3452") {
+        window.location.href = "success.html";
+      } else {
+        window.location.href = "error.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
